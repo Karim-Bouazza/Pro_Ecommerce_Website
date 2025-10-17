@@ -7,17 +7,12 @@ export class UsersService {
   constructor(private readonly prisma: PrismaService) {}
 
   /**
-   * Get User By Id
-   * @param id
-   * @returns User
-   */
-  /**
    * Get user by ID
    * @param id - User ID
    * @returns User object (without sensitive fields)
    * @throws NotFoundException if user doesn't exist
    */
-  async findOne(id: number) {
+  async findCurrentUser(id: number) {
     const userInfo = await this.prisma.user.findUnique({ where: { id } });
     if (!userInfo) throw new NotFoundException('User not found');
     const {
@@ -76,5 +71,27 @@ export class UsersService {
       }
       throw error;
     }
+  }
+
+  /**
+   * Get user by ID
+   * @param id - User ID
+   * @returns User object (without sensitive fields)
+   * @throws NotFoundException if user doesn't exist
+   */
+  async findUserByOtherUser(id: number) {
+    const userInfo = await this.prisma.user.findUnique({ where: { id } });
+    if (!userInfo) throw new NotFoundException('User not found');
+    const {
+      password,
+      role,
+      email,
+      active,
+      verificationCode,
+      createdAt,
+      updatedAt,
+      ...user
+    } = userInfo;
+    return user;
   }
 }

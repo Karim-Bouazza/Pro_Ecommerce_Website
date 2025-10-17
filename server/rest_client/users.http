@@ -1,9 +1,9 @@
 ### Get Current User
-GET http://localhost:3000/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJzYWxpbS5ib3VhenphQGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjA1NTY4MzgsImV4cCI6MTc2MDY0MzIzOH0.T2o_18vtV28IZ9zLd31qFOJ_OzhOoBb-EqYuAVJlsD4
+GET http://localhost:3000/user/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJrYXJpbTEuYm91YXp6YUBnbWFpbC5jb20iLCJyb2xlIjoiVXNlciIsImFjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYwNzA4NzI3LCJleHAiOjE3NjA3OTUxMjd9.Rgli1d4p8S54TOlEP1I9MW65xk_EpUbOnSZFa-m8qgM
 
 ### Update User
-PUT http://localhost:3000/users/update
+PUT http://localhost:3000/user/update
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJzYWxpbS5ib3VhenphQGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjA1NTY4MzgsImV4cCI6MTc2MDY0MzIzOH0.T2o_18vtV28IZ9zLd31qFOJ_OzhOoBb-EqYuAVJlsD4
 Content-Type: application/json
 
@@ -12,5 +12,9 @@ Content-Type: application/json
 }
 
 ### Delete User
-DELETE http://localhost:3000/users/delete
+DELETE http://localhost:3000/user/delete
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJzYWxpbS5ib3VhenphQGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjA1NTY4MzgsImV4cCI6MTc2MDY0MzIzOH0.T2o_18vtV28IZ9zLd31qFOJ_OzhOoBb-EqYuAVJlsD4
+
+### Get User by ID
+GET http://localhost:3000/user/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJrYXJpbTEuYm91YXp6YUBnbWFpbC5jb20iLCJyb2xlIjoiVXNlciIsImFjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYwNzA4NzI3LCJleHAiOjE3NjA3OTUxMjd9.Rgli1d4p8S54TOlEP1I9MW65xk_EpUbOnSZFa-m8qgM

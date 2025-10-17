@@ -20,7 +20,7 @@ export class RolesAuthGuard implements CanActivate {
         try {
           const payload = await this.jwtService.verifyAsync(token, { secret: process.env.JWT_SECRET });
 
-          const user = await this.userService.findOne(payload.id);
+          const user = await this.userService.findCurrentUser(payload.id);
           if(!user) throw new UnauthorizedException('User no longer exists');
 
           if(roles.includes(user.role)) {
