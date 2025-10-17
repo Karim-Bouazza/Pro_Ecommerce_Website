@@ -1,0 +1,16 @@
+### Get Current User
+GET http://localhost:3000/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJzYWxpbS5ib3VhenphQGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjA1NTY4MzgsImV4cCI6MTc2MDY0MzIzOH0.T2o_18vtV28IZ9zLd31qFOJ_OzhOoBb-EqYuAVJlsD4
+
+### Update User
+PUT http://localhost:3000/users/update
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJzYWxpbS5ib3VhenphQGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjA1NTY4MzgsImV4cCI6MTc2MDY0MzIzOH0.T2o_18vtV28IZ9zLd31qFOJ_OzhOoBb-EqYuAVJlsD4
+Content-Type: application/json
+
+{
+    "role": "Admin"
+}
+
+### Delete User
+DELETE http://localhost:3000/users/delete
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJzYWxpbS5ib3VhenphQGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjA1NTY4MzgsImV4cCI6MTc2MDY0MzIzOH0.T2o_18vtV28IZ9zLd31qFOJ_OzhOoBb-EqYuAVJlsD4

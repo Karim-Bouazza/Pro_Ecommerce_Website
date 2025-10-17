@@ -1,0 +1,27 @@
+### register a new user
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+  "name": "Karim Bouazza",
+  "email": "karim.bouazza.usthbb@gmail.com",
+  "password": "StrongPassword123!"
+}
+
+### login User
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "karim@gmail.com",
+   "password": "StrongPassword123!"
+}
+
+### login Admin
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "karim.bouazza@gmail.com",
+  "password": "StrongPassword123!"
+}

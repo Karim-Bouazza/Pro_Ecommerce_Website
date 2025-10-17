@@ -1,0 +1,228 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id               Int      @id @default(autoincrement())
+  name             String
+  email            String   @unique
+  password         String
+  role             UserRole @default(User)
+  avatar           String?
+  age              Int?
+  phoneNumber      String?
+  address          String?
+  active           Boolean? @default(true)
+  verificationCode String?
+  gender           Gender?
+
+  reviews        Review[]
+  cartItems      Cart[]
+  RequestProduct RequestProduct[]
+  Order          Order[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Category {
+  id    Int     @id @default(autoincrement())
+  name  String  @unique
+  image String?
+
+  subCategories SubCategory[]
+  Product       Product[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model SubCategory {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+
+  Product Product[]
+
+  categoryId Int?
+  category   Category? @relation(fields: [categoryId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Review {
+  id         Int     @id @default(autoincrement())
+  reviewText String?
+  rating     Int
+
+  userId Int?
+  user   User? @relation(fields: [userId], references: [id])
+
+  productId Int?
+  product   Product? @relation(fields: [productId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Brand {
+  id    Int     @id @default(autoincrement())
+  name  String  @unique
+  image String?
+
+  Product Product[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Cart {
+  id                      Int    @id @default(autoincrement())
+  totalPrice              Float?
+  totalPriceAfterDiscount Float?
+
+  productId Int?
+  cartItems Product? @relation(fields: [productId], references: [id])
+
+  couponId Int?
+  coupons  Coupon? @relation(fields: [couponId], references: [id])
+
+  userId Int?
+  user   User? @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Coupon {
+  id         Int      @id @default(autoincrement())
+  name       String
+  expireData DateTime
+  discount   Float
+
+  cartItems Cart[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Product {
+  id                 Int      @id @default(autoincrement())
+  title              String
+  description        String
+  quantity           Int      @default(1)
+  imageCover         String
+  images             String[]
+  sold               Int?     @default(0)
+  price              Float
+  priceAfterDiscount Float?   @default(0)
+  colors             String[]
+  ratingsAverage     Float?   @default(0)
+  ratingsQuantity    Int?     @default(0)
+
+  reviews   Review[]
+  Order     Order[]
+  cartItems Cart[]
+
+  categoryId Int?
+  category   Category? @relation(fields: [categoryId], references: [id])
+
+  subCategoryId Int?
+  subCategory   SubCategory? @relation(fields: [subCategoryId], references: [id])
+
+  brandId Int?
+  brand   Brand? @relation(fields: [brandId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model RequestProduct {
+  id        Int    @id @default(autoincrement())
+  titleNeed String
+  details   String
+  qantity   Int
+  category  String
+
+  userId Int?
+  user   User? @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Suppliers {
+  id      Int    @id @default(autoincrement())
+  name    String
+  website String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Tax {
+  id            Int    @id @default(autoincrement())
+  texPrice      Float?
+  shippingPrice Float?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Order {
+  id                Int              @id @default(autoincrement())
+  texPrice          Float?           @default(0)
+  shippingPrice     Float?           @default(0)
+  totalOrderPrice   Float
+  paymentMethodType PaymentMethod
+  isPaid            Boolean?         @default(false)
+  paidAt            DateTime?
+  isDelivered       Boolean?         @default(false)
+  deliveredAt       DateTime?
+  shippingAdress    shippingAdress[]
+
+  userId Int?
+  user   User? @relation(fields: [userId], references: [id])
+
+  productId Int?
+  cartItems Product? @relation(fields: [productId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model shippingAdress {
+  id         Int    @id @default(autoincrement())
+  alias      String
+  details    String
+  phone      Int
+  city       String
+  postalCode Int
+
+  orderId Int?
+  order   Order? @relation(fields: [orderId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Enums
+enum UserRole {
+  Admin
+  User
+}
+
+enum Gender {
+  Male
+  Female
+}
+
+enum PaymentMethod {
+  Cash
+  Card
+}
