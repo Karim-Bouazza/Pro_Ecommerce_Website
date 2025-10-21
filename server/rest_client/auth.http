@@ -25,3 +25,11 @@ Content-Type: application/json
   "email": "karim.bouazza@gmail.com",
   "password": "StrongPassword123!"
 }
+
+### Forgot Password - Request Verification Code
+POST http://localhost:3000/auth/forgot-password
+Content-Type: application/json
+
+{
+  "email": "karim1.bouazza@gmail.com"
+}

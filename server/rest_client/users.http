@@ -13,7 +13,7 @@ Content-Type: application/json
 
 ### Delete User
 DELETE http://localhost:3000/user/delete
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJzYWxpbS5ib3VhenphQGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjA1NTY4MzgsImV4cCI6MTc2MDY0MzIzOH0.T2o_18vtV28IZ9zLd31qFOJ_OzhOoBb-EqYuAVJlsD4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJrYXJpbTEuYm91YXp6YUBnbWFpbC5jb20iLCJyb2xlIjoiVXNlciIsImFjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYwODczODQyLCJleHAiOjE3NjA5NjAyNDJ9.nfJJgD0FwP9u2l09WIgFrvzqqybgzMZGh31suz_tzco
 
 ### Get User by ID
 GET http://localhost:3000/user/3

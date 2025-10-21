@@ -1,6 +1,6 @@
 ### All Users By Admin
-GET http://localhost:3000/admins/users?pageNumber=1&userPerPage=5&usersName=karim&usersOrder=asc
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZW1haWwiOiJrYXJpbS5ib3VhenphQGdtYWlsLmNvbSIsInJvbGUiOiJBZG1pbiIsImFjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYwNjkzOTE0LCJleHAiOjE3NjA3ODAzMTR9.f_-gZeqxXyT9ll1v1DLt-McC5dATdztAoDmUSXtdgsk
+GET http://localhost:3000/admins/users?pageNumber=1&userPerPage=5
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZW1haWwiOiJrYXJpbS5ib3VhenphQGdtYWlsLmNvbSIsInJvbGUiOiJBZG1pbiIsImFjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYxMDMzNjgzLCJleHAiOjE3NjExMjAwODN9.CNPOh5-mXofiht3cvIxz2wdaDiFQjm3VeTBlN29reck
 
 ### Get User by ID By Admin
 GET http://localhost:3000/admins/7

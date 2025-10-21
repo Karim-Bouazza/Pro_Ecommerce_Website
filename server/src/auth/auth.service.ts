@@ -9,12 +9,15 @@ import { PrismaService } from 'src/prisma/prisma.service';
 import * as bcrypt from 'bcrypt';
 import { LoginDto } from './dto/login.dto';
 import { JWTPayloadType } from 'src/utils/types';
+import crypto from 'crypto';
+import { MailService } from 'src/mail/mail.service';
 
 @Injectable()
 export class AuthService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly jwtService: JwtService,
+    private readonly mailService: MailService,
   ) {}
 
   /**
@@ -85,7 +88,42 @@ export class AuthService {
     return { message: 'Login successful', user: resultat, accessToken };
   }
 
+  /**
+   * Send a password reset email
+   * @param email User's email address
+   * @returns Success message
+   */
+  async resetPasswordEmail(email: string) {
+    const userId = await this.prisma.user.findUnique({ where: { email } });
+    if (!userId) throw new NotFoundException('User not found');
+
+    const codeVerification = this.generateVerificationCode();
+
+    const user = await this.prisma.user.update({
+      where: { email },
+      data: { verificationCode: codeVerification },
+    });
+
+    const link = `http://localhost:5173/reset-password?username=${user.name}&email=${user.email}`;
+    await this.mailService.sendEmail({ email: user.email }, link, codeVerification);
+
+    return { message: 'Verification code sent to email' };
+  }
+
+  /**
+   * Generate a JSON Web Token
+   * @param payload JWT payload
+   * @returns JWT token
+   */
   private generateJWT(payload: JWTPayloadType) {
     return this.jwtService.signAsync(payload);
+  }
+
+  /**
+   * Generate a verification code
+   * @returns Verification code
+   */
+  generateVerificationCode(): string {
+    return crypto.randomInt(100000, 999999).toString();
   }
 }

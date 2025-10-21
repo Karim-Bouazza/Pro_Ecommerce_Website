@@ -18,4 +18,11 @@ export class AuthController {
   login(@Body() loginAuthDto: LoginDto) {
     return this.authService.login(loginAuthDto);
   }
+
+  // ~/auth/forgot-password
+  @Post('forgot-password')
+  forgotPassword(@Body('email') email: string) {
+    return this.authService.resetPasswordEmail(email);
+  }
 }
+

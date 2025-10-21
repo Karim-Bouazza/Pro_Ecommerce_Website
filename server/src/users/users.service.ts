@@ -62,9 +62,13 @@ export class UsersService {
    * @returns Deleted user object
    * @throws NotFoundException if user doesn't exist
    */
-  async remove(id: number) {
+  async remove(id: number): Promise<void> {
     try {
-      return await this.prisma.user.delete({ where: { id } });
+      // return await this.prisma.user.delete({ where: { id } });
+      const user = await this.prisma.user.update({
+        where: { id },
+        data: { active: false },
+      });
     } catch (error) {
       if (error.code === 'P2025') {
         throw new NotFoundException('User not found');
