@@ -14,10 +14,9 @@ import { AdminsService } from './admins.service';
 import { CreateAdminDto } from './dto/create-admin.dto';
 import { UpdateAdminDto } from './dto/update-admin.dto';
 import { Roles } from 'src/auth/decorators/roles.decorator';
-import { User, UserRole } from '@prisma/client';
+import { UserRole } from '@prisma/client';
 import { RolesAuthGuard } from 'src/auth/guards/roles.guard';
-import { CurrentAdmin } from './decorators/current-admin.decorator';
-import { JwtAuthGuard } from 'src/auth/guards/jwt.guard';
+import { CurrentAdmin } from './decorators/current-user.decorator';
 
 @Controller('/admins')
 export class AdminsController {
