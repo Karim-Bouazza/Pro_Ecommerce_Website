@@ -12,16 +12,20 @@ export class CategoryService {
      const category = await this.prisma.category.findUnique({ where: { name } });
      if(category) throw new BadRequestException(`You have already category with name: ${name}`);
 
+     const newCategory = await this.prisma.category.create({ data: { name } });
+
+     return newCategory;
+
     //  ToDo : if he is enter image upload to cloudinary and then insert in db and insert name in db
   }
 
   findAll() {
-    return `This action returns all category`;
+    return this.prisma.category.findMany();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} category`;
-  }
+  // findOne() {
+  //   return this.prisma.category.findUnique({ where: { id } });
+  // }
 
   update(id: number, updateCategoryDto: UpdateCategoryDto) {
     return `This action updates a #${id} category`;
