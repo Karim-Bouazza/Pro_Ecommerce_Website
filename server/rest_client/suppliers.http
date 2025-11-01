@@ -1,0 +1,28 @@
+### Create New Supplier
+POST http://localhost:3000/supplier/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJwcm9mZXNzb3JfdXN0aGJAZXhhbXBsZS5jb20iLCJyb2xlIjoiQWRtaW4iLCJhY3RpdmUiOmZhbHNlLCJpYXQiOjE3NjE5MTU4MzQsImV4cCI6MTc2MjAwMjIzNH0.zPR9R_5uIh4I6yKWYpYDVOfGy5hGUKM4IJ0G2CvQodM
+
+{
+  "name": "iphone",
+  "website": "iphone.com"
+}
+
+### Get All Suppliers
+GET http://localhost:3000/supplier/suppliers
+
+### Get Supplier By Id
+GET http://localhost:3000/supplier/1
+
+### Updated Supplier by Id
+PUT http://localhost:3000/supplier/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJwcm9mZXNzb3JfdXN0aGJAZXhhbXBsZS5jb20iLCJyb2xlIjoiQWRtaW4iLCJhY3RpdmUiOmZhbHNlLCJpYXQiOjE3NjE5MTU4MzQsImV4cCI6MTc2MjAwMjIzNH0.zPR9R_5uIh4I6yKWYpYDVOfGy5hGUKM4IJ0G2CvQodM
+
+{
+  "name": "iphon2025"
+}
+
+### Delete Supplier By Id
+DELETE http://localhost:3000/supplier/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJwcm9mZXNzb3JfdXN0aGJAZXhhbXBsZS5jb20iLCJyb2xlIjoiQWRtaW4iLCJhY3RpdmUiOmZhbHNlLCJpYXQiOjE3NjE5MTU4MzQsImV4cCI6MTc2MjAwMjIzNH0.zPR9R_5uIh4I6yKWYpYDVOfGy5hGUKM4IJ0G2CvQodM

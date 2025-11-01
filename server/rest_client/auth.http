@@ -13,16 +13,18 @@ POST http://localhost:3000/auth/login
 Content-Type: application/json
 
 {
-  "email": "karim19215@gmail.com",
-   "password": "StrongPassword123!kq"
+  "email": "karim1.bouazza@gmail.com",
+   "password": "StrongPassword123!"
 }
+
+ // kq
 
 ### login Admin
 POST http://localhost:3000/auth/login
 Content-Type: application/json
 
 {
-  "email": "karim.bouazza@gmail.com",
+  "email": "professor_usthb@example.com",
   "password": "StrongPassword123!"
 }
 

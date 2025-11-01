@@ -1,0 +1,28 @@
+### Create New SubCategroy
+POST http://localhost:3000/sub-category/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJwcm9mZXNzb3JfdXN0aGJAZXhhbXBsZS5jb20iLCJyb2xlIjoiQWRtaW4iLCJhY3RpdmUiOmZhbHNlLCJpYXQiOjE3NjE0MTI3ODYsImV4cCI6MTc2MTQ5OTE4Nn0.nxDGUaoHznls45gGjiYgZIBQF4SPUsjevUe6A_9UMOw
+
+{
+  "categoryId": 6,
+  "name": "oppo"
+}
+
+### Get All Categories
+GET http://localhost:3000/sub-category/sub-categories
+
+### Get Category By Id
+GET http://localhost:3000/sub-category/4
+
+### Updated Category by Id
+PUT http://localhost:3000/sub-category/6
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZW1haWwiOiJrYXJpbS5ib3VhenphQGdtYWlsLmNvbSIsInJvbGUiOiJBZG1pbiIsImFjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYxMzY0Nzg4LCJleHAiOjE3NjE0NTExODh9.LajifnZa5zpdwQd-6h83v5IfYkq3Z6L6LDYc1qteWqI
+
+{
+  "categoryId": 2
+}
+
+### Delete Category By Id
+DELETE http://localhost:3000/sub-category/5
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZW1haWwiOiJrYXJpbS5ib3VhenphQGdtYWlsLmNvbSIsInJvbGUiOiJBZG1pbiIsImFjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYxMzY0Nzg4LCJleHAiOjE3NjE0NTExODh9.LajifnZa5zpdwQd-6h83v5IfYkq3Z6L6LDYc1qteWqI

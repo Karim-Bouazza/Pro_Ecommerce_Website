@@ -1,13 +1,12 @@
 import { IsNotEmpty, IsOptional, IsString } from "class-validator";
 
-export class UpdateCategoryDto {
+export class CreateBrandDto {
     @IsString()
     @IsNotEmpty()
-    @IsOptional()
     name: string;
 
     @IsOptional()
-    @IsString()
     @IsNotEmpty()
+    @IsString()
     image: string;
 }

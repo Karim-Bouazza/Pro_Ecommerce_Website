@@ -13,8 +13,8 @@ export class SensitiveDataInterceptor implements NestInterceptor {
     next: CallHandler<any>,
   ): Observable<any> | Promise<Observable<any>> {
     return next.handle().pipe(map(data => {
-        const { password, role, active, verificationCode, createdAt, updatedAt, ...resultat } = data.user;
-        return { ...resultat };
+        const { createdAt, updatedAt ,...info } = data.data;
+        return { ...info };
     }))
   }
 }

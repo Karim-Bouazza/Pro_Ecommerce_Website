@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import { HttpException, Injectable, NotFoundException } from '@nestjs/common';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { UpdateCategoryDto } from './dto/update-category.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
@@ -7,31 +7,110 @@ import { PrismaService } from 'src/prisma/prisma.service';
 export class CategoryService {
   constructor(private readonly prisma: PrismaService) {}
 
+  /**
+   * Create New Category From Admin
+   * @param createCategoryDto name and image opionale
+   * @returns status 200 & message & data
+   */
   async create(createCategoryDto: CreateCategoryDto) {
-     const { name } = createCategoryDto;
-     const category = await this.prisma.category.findUnique({ where: { name } });
-     if(category) throw new BadRequestException(`You have already category with name: ${name}`);
+    const { name } = createCategoryDto;
 
-     const newCategory = await this.prisma.category.create({ data: { name } });
+    const category = await this.prisma.category.findUnique({ where: { name } });
+    if (category)
+      throw new HttpException(
+        `You have already category with name: ${name}`,
+        400,
+      );
 
-     return newCategory;
-
-    //  ToDo : if he is enter image upload to cloudinary and then insert in db and insert name in db
+    const newCategory = await this.prisma.category.create({
+      data: createCategoryDto,
+    });
+    return {
+      status: 200,
+      message: 'Category created successfully',
+      data: newCategory,
+    };
   }
 
-  findAll() {
-    return this.prisma.category.findMany();
+  /**
+   * Get all cateogries to users and admins
+   * @returns All Categories
+   */
+  async findAll() {
+    const categories = await this.prisma.category.findMany({
+      omit: { createdAt: true, updatedAt: true },
+      include: { subCategories: true },
+    });
+
+    return {
+      status: 200,
+      message: 'Categories found',
+      data: categories,
+    };
   }
 
-  // findOne() {
-  //   return this.prisma.category.findUnique({ where: { id } });
-  // }
+  /**
+   * get single category for users and admins
+   * @param id of category
+   * @returns data of category
+   */
+  async findOne(id: number) {
+    const category = await this.prisma.category.findUnique({
+      where: { id },
+      include: { subCategories: true },
+      omit: { createdAt: true, updatedAt: true },
+    });
+    if (!category) throw new NotFoundException('Categery Not Found');
 
-  update(id: number, updateCategoryDto: UpdateCategoryDto) {
-    return `This action updates a #${id} category`;
+    return {
+      status: 200,
+      message: 'Category found',
+      data: category,
+    };
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} category`;
+  /**
+   * Update Category By Admin
+   * @param id of category
+   * @param updateCategoryDto name & image Optional
+   * @returns status 200 & message & updated category
+   */
+  async update(id: number, updateCategoryDto: UpdateCategoryDto) {
+    const category = await this.prisma.category.findUnique({
+      where: { id },
+    });
+    if (!category) throw new NotFoundException('Categery Not Found');
+
+    const categoryUpdated = await this.prisma.category.update({
+      where: { id },
+      data: updateCategoryDto,
+    });
+
+    return {
+      status: 200,
+      message: 'Category updated successfully',
+      data: categoryUpdated,
+    };
+  }
+
+  /**
+   * Delete Category By Admin
+   * @param id of category
+   * @returns status 200 & message
+   */
+  async remove(id: number) {
+    const category = await this.prisma.category.findUnique({
+      where: { id },
+    });
+    if (!category) throw new NotFoundException('Categery Not Found');
+
+    await this.prisma.category.delete({
+      where: { id },
+    });
+
+    return {
+      status: 200,
+      message: 'Categery deleted successfully',
+    };
   }
 }

@@ -1,0 +1,29 @@
+### Create New Brand
+POST http://localhost:3000/brand/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJwcm9mZXNzb3JfdXN0aGJAZXhhbXBsZS5jb20iLCJyb2xlIjoiQWRtaW4iLCJhY3RpdmUiOmZhbHNlLCJpYXQiOjE3NjE5MTU4MzQsImV4cCI6MTc2MjAwMjIzNH0.zPR9R_5uIh4I6yKWYpYDVOfGy5hGUKM4IJ0G2CvQodM
+
+{
+  "name": "mezian"
+}
+
+### Get All Brands
+GET http://localhost:3000/brand/brands
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJwcm9mZXNzb3JfdXN0aGJAZXhhbXBsZS5jb20iLCJyb2xlIjoiQWRtaW4iLCJhY3RpdmUiOmZhbHNlLCJpYXQiOjE3NjE1NjM2MTYsImV4cCI6MTc2MTY1MDAxNn0.JS3Asi6tQm9jGsgNirooe2y3buF-afEl2GYKZLo48uM
+
+### Get Brand By Id
+GET http://localhost:3000/brand/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJwcm9mZXNzb3JfdXN0aGJAZXhhbXBsZS5jb20iLCJyb2xlIjoiQWRtaW4iLCJhY3RpdmUiOmZhbHNlLCJpYXQiOjE3NjE1NjM2MTYsImV4cCI6MTc2MTY1MDAxNn0.JS3Asi6tQm9jGsgNirooe2y3buF-afEl2GYKZLo48uM
+
+### Updated Brand by Id
+PUT http://localhost:3000/brand/3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJwcm9mZXNzb3JfdXN0aGJAZXhhbXBsZS5jb20iLCJyb2xlIjoiQWRtaW4iLCJhY3RpdmUiOmZhbHNlLCJpYXQiOjE3NjE1NjM2MTYsImV4cCI6MTc2MTY1MDAxNn0.JS3Asi6tQm9jGsgNirooe2y3buF-afEl2GYKZLo48uM
+
+{
+  "name": "Lacoste"
+}
+
+### Delete Brand By Id
+DELETE http://localhost:3000/brand/4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJwcm9mZXNzb3JfdXN0aGJAZXhhbXBsZS5jb20iLCJyb2xlIjoiQWRtaW4iLCJhY3RpdmUiOmZhbHNlLCJpYXQiOjE3NjE1NjM2MTYsImV4cCI6MTc2MTY1MDAxNn0.JS3Asi6tQm9jGsgNirooe2y3buF-afEl2GYKZLo48uM

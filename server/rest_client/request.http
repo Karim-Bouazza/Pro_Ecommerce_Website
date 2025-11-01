@@ -1,0 +1,37 @@
+### Create New Request-Product By User or admin
+POST http://localhost:3000/request-product/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJrYXJpbTEuYm91YXp6YUBnbWFpbC5jb20iLCJyb2xlIjoiVXNlciIsImFjdGl2ZSI6ZmFsc2UsImlhdCI6MTc2MTk5OTQwOSwiZXhwIjoxNzYyMDg1ODA5fQ.0Rpm8PAr_iuyw_UtXnpHkIZ-rnqux7jrjMh-aGbxcoc
+
+{
+    "titleNeed": "car",
+    "details": "car audi a3 black",
+    "qantity": 5,
+    "category": "cars"
+}
+
+### Get All Requests-Products By Admin
+GET http://localhost:3000/request-product/admin-requests
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJwcm9mZXNzb3JfdXN0aGJAZXhhbXBsZS5jb20iLCJyb2xlIjoiQWRtaW4iLCJhY3RpdmUiOmZhbHNlLCJpYXQiOjE3NjE5OTk0ODgsImV4cCI6MTc2MjA4NTg4OH0.gvSfeiBT26AZv-5XFb2eN5Wqu3RrzoCMLAese0C3dVs
+
+### Get All Requests-Products By User
+GET http://localhost:3000/request-product/requests-products
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJrYXJpbTEuYm91YXp6YUBnbWFpbC5jb20iLCJyb2xlIjoiVXNlciIsImFjdGl2ZSI6ZmFsc2UsImlhdCI6MTc2MTk5OTQwOSwiZXhwIjoxNzYyMDg1ODA5fQ.0Rpm8PAr_iuyw_UtXnpHkIZ-rnqux7jrjMh-aGbxcoc
+
+### Get Request-Product By Id
+GET http://localhost:3000/request-product/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJwcm9mZXNzb3JfdXN0aGJAZXhhbXBsZS5jb20iLCJyb2xlIjoiQWRtaW4iLCJhY3RpdmUiOmZhbHNlLCJpYXQiOjE3NjE5OTk0ODgsImV4cCI6MTc2MjA4NTg4OH0.gvSfeiBT26AZv-5XFb2eN5Wqu3RrzoCMLAese0C3dVs
+
+### Updated Request-Product by Id for Admin or User
+PUT http://localhost:3000/request-product/2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJrYXJpbTEuYm91YXp6YUBnbWFpbC5jb20iLCJyb2xlIjoiVXNlciIsImFjdGl2ZSI6ZmFsc2UsImlhdCI6MTc2MTk5OTQwOSwiZXhwIjoxNzYyMDg1ODA5fQ.0Rpm8PAr_iuyw_UtXnpHkIZ-rnqux7jrjMh-aGbxcoc
+
+{
+    "details": "T-shirt oversize color red",
+    "qantity": 5
+}
+
+### Delete Coupon By Id for Admin or User
+DELETE http://localhost:3000/request-product/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJrYXJpbTEuYm91YXp6YUBnbWFpbC5jb20iLCJyb2xlIjoiVXNlciIsImFjdGl2ZSI6ZmFsc2UsImlhdCI6MTc2MTk5OTQwOSwiZXhwIjoxNzYyMDg1ODA5fQ.0Rpm8PAr_iuyw_UtXnpHkIZ-rnqux7jrjMh-aGbxcoc

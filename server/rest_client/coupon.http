@@ -1,0 +1,31 @@
+### Create New Coupon By Admin
+POST http://localhost:3000/coupon/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJwcm9mZXNzb3JfdXN0aGJAZXhhbXBsZS5jb20iLCJyb2xlIjoiQWRtaW4iLCJhY3RpdmUiOmZhbHNlLCJpYXQiOjE3NjE4NDQ0OTgsImV4cCI6MTc2MTkzMDg5OH0.I5cC978Gc8_JMiQ1ZHCz9pv96Pzg_eIAAPi23RZb5I4
+
+{
+  "name": "karim8Discount",
+  "expireDate": "2026-06-01",
+  "discount": 19.99
+}
+
+### Get All Coupons By Admin
+GET http://localhost:3000/coupon/coupons
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJwcm9mZXNzb3JfdXN0aGJAZXhhbXBsZS5jb20iLCJyb2xlIjoiQWRtaW4iLCJhY3RpdmUiOmZhbHNlLCJpYXQiOjE3NjE4NDQ0OTgsImV4cCI6MTc2MTkzMDg5OH0.I5cC978Gc8_JMiQ1ZHCz9pv96Pzg_eIAAPi23RZb5I4
+
+### Get Coupons By Id
+GET http://localhost:3000/coupon/9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJwcm9mZXNzb3JfdXN0aGJAZXhhbXBsZS5jb20iLCJyb2xlIjoiQWRtaW4iLCJhY3RpdmUiOmZhbHNlLCJpYXQiOjE3NjE4NDQ0OTgsImV4cCI6MTc2MTkzMDg5OH0.I5cC978Gc8_JMiQ1ZHCz9pv96Pzg_eIAAPi23RZb5I4
+
+### Updated Coupon by Id for Admin
+PUT http://localhost:3000/coupon/3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZW1haWwiOiJrYXJpbS5ib3VhenphQGdtYWlsLmNvbSIsInJvbGUiOiJBZG1pbiIsImFjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYxMzY0Nzg4LCJleHAiOjE3NjE0NTExODh9.LajifnZa5zpdwQd-6h83v5IfYkq3Z6L6LDYc1qteWqI
+
+{
+  "discount": 29.99
+}
+
+### Delete Coupon By Id for Admin
+DELETE http://localhost:3000/coupon/8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJwcm9mZXNzb3JfdXN0aGJAZXhhbXBsZS5jb20iLCJyb2xlIjoiQWRtaW4iLCJhY3RpdmUiOmZhbHNlLCJpYXQiOjE3NjE4NDQ0OTgsImV4cCI6MTc2MTkzMDg5OH0.I5cC978Gc8_JMiQ1ZHCz9pv96Pzg_eIAAPi23RZb5I4

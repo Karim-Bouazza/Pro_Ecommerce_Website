@@ -102,7 +102,7 @@ model Cart {
 model Coupon {
   id         Int      @id @default(autoincrement())
   name       String
-  expireData DateTime
+  expireDate String
   discount   Float
 
   cartItems Cart[]
@@ -147,7 +147,7 @@ model RequestProduct {
   titleNeed String
   details   String
   qantity   Int
-  category  String
+  category  String?
 
   userId Int?
   user   User? @relation(fields: [userId], references: [id])

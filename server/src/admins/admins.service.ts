@@ -15,7 +15,7 @@ export class AdminsService {
    * @returns Current Admin
    */
   async findAdmin(id: number) {
-    const admin = this.prisma.user.findUnique({ where: { id } });
+    const admin = this.prisma.user.findUnique({ where: { id }});
     if (!admin) throw new NotFoundException('Admin not found');
     return admin;
   }

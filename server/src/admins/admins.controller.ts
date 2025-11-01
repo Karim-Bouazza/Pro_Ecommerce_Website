@@ -26,7 +26,7 @@ export class AdminsController {
   @Roles(UserRole.Admin)
   @UseGuards(RolesAuthGuard)
   public currentAdmin(@CurrentAdmin() payload) {
-    return this.adminsService.findOne(payload.id);
+    return this.adminsService.findAdmin(payload.id);
   }
 
   @Post('/create')

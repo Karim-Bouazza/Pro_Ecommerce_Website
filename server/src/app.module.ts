@@ -6,8 +6,13 @@ import { MailModule } from './mail/mail.module';
 import { ResetPasswordModule } from './reset_password/reset_password.module';
 import { CategoryModule } from './category/category.module';
 import { CloudinaryModule } from './cloudinary/cloudinary.module';
+import { SubCategoryModule } from './sub-category/sub-category.module';
+import { BrandModule } from './brand/brand.module';
+import { CouponModule } from './coupon/coupon.module';
+import { SuppliersModule } from './suppliers/suppliers.module';
+import { RequestModule } from './request/request.module';
 
 @Module({
-  imports: [AdminsModule, UsersModule, AuthModule, MailModule, ResetPasswordModule, CategoryModule, CloudinaryModule],
+  imports: [AdminsModule, UsersModule, AuthModule, MailModule, ResetPasswordModule, CategoryModule, CloudinaryModule, SubCategoryModule, BrandModule, CouponModule, SuppliersModule, RequestModule],
 })
 export class AppModule {}
