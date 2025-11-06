@@ -2,14 +2,12 @@ import { HttpException, Injectable, NotFoundException } from '@nestjs/common';
 import { CreateRequestDto } from './dto/create-request.dto';
 import { UpdateRequestDto } from './dto/update-request.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { UsersService } from 'src/users/users.service';
 import { UserRole } from '@prisma/client';
 
 @Injectable()
 export class RequestService {
   constructor(
     private readonly prisma: PrismaService,
-    private readonly usersService: UsersService,
   ) {}
 
   /**
