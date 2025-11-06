@@ -6,6 +6,7 @@ import { UsersModule } from 'src/users/users.module';
 
 @Module({
   imports: [PrismaModule, UsersModule],
+  exports: [BrandService],
   controllers: [BrandController],
   providers: [BrandService],
 })

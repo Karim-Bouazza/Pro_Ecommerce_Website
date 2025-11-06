@@ -1,0 +1,41 @@
+### Create New Product
+POST http://localhost:3000/product
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJwcm9mZXNzb3JfdXN0aGJAZXhhbXBsZS5jb20iLCJyb2xlIjoiQWRtaW4iLCJhY3RpdmUiOmZhbHNlLCJpYXQiOjE3NjIwODU5ODEsImV4cCI6MTc2MjE3MjM4MX0.DunMhMWUnGLdOnVS8tcP_QTExRDIMiremWYerHn3t-c
+
+{
+  "title": "hipHop",
+  "description": "made in algeria and have good size and it is oversize",
+  "quantity": 274,
+  "imageCover": "https/usplash/2371832748",
+  "price": 3900,
+  "categoryId": 7,
+  "subCategoryId": 13
+}
+
+### Get All Products By Admin
+GET http://localhost:3000/product/admin?pageNumber=1&productPerPage=5
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJwcm9mZXNzb3JfdXN0aGJAZXhhbXBsZS5jb20iLCJyb2xlIjoiQWRtaW4iLCJhY3RpdmUiOmZhbHNlLCJpYXQiOjE3NjIwODU5ODEsImV4cCI6MTc2MjE3MjM4MX0.DunMhMWUnGLdOnVS8tcP_QTExRDIMiremWYerHn3t-c
+
+### Get All Products By User
+GET http://localhost:3000/product
+
+### Get Product By Id By Admin
+GET http://localhost:3000/product/admin/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJwcm9mZXNzb3JfdXN0aGJAZXhhbXBsZS5jb20iLCJyb2xlIjoiQWRtaW4iLCJhY3RpdmUiOmZhbHNlLCJpYXQiOjE3NjI0NTU1NDgsImV4cCI6MTc2MjU0MTk0OH0.XgWCuhjGj2uzv8oMy0cicwDFFFJbaXCI4FThSeECLE4
+
+### Get Product By Id By User
+GET http://localhost:3000/product/1
+
+### Updated Product by Id
+PUT http://localhost:3000/product/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJwcm9mZXNzb3JfdXN0aGJAZXhhbXBsZS5jb20iLCJyb2xlIjoiQWRtaW4iLCJhY3RpdmUiOmZhbHNlLCJpYXQiOjE3NjIwODU5ODEsImV4cCI6MTc2MjE3MjM4MX0.DunMhMWUnGLdOnVS8tcP_QTExRDIMiremWYerHn3t-c
+
+{
+  "priceAfterDiscount": 2900
+}
+
+### Delete Product By Id
+DELETE http://localhost:3000/product/4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJwcm9mZXNzb3JfdXN0aGJAZXhhbXBsZS5jb20iLCJyb2xlIjoiQWRtaW4iLCJhY3RpdmUiOmZhbHNlLCJpYXQiOjE3NjIwODU5ODEsImV4cCI6MTc2MjE3MjM4MX0.DunMhMWUnGLdOnVS8tcP_QTExRDIMiremWYerHn3t-c.eyJpZCI6NywiZW1haWwiOiJwcm9mZXNzb3JfdXN0aGJAZXhhbXBsZS5jb20iLCJyb2xlIjoiQWRtaW4iLCJhY3RpdmUiOmZhbHNlLCJpYXQiOjE3NjIwODU5ODEsImV4cCI6MTc2MjE3MjM4MX0.DunMhMWUnGLdOnVS8tcP_QTExRDIMiremWYerHn3t-c

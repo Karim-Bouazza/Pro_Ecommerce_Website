@@ -7,6 +7,7 @@ import { CategoryModule } from 'src/category/category.module';
 
 @Module({
   imports: [PrismaModule, UsersModule, CategoryModule],
+  exports: [SubCategoryService],
   controllers: [SubCategoryController],
   providers: [SubCategoryService],
 })

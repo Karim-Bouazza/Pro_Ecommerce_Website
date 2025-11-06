@@ -1,0 +1,30 @@
+### Create New Tex
+POST http://localhost:3000/tex
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJwcm9mZXNzb3JfdXN0aGJAZXhhbXBsZS5jb20iLCJyb2xlIjoiQWRtaW4iLCJhY3RpdmUiOmZhbHNlLCJpYXQiOjE3NjIwMjI3NDYsImV4cCI6MTc2MjEwOTE0Nn0.-VA_PM5OYPlkZWd2gfuz3BlSlCrWITVGYgJJYMEqn0k
+
+{
+  "texName": "retour",
+  "texPrice": 250
+}
+
+### Get All Texs
+GET http://localhost:3000/tex
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJwcm9mZXNzb3JfdXN0aGJAZXhhbXBsZS5jb20iLCJyb2xlIjoiQWRtaW4iLCJhY3RpdmUiOmZhbHNlLCJpYXQiOjE3NjIwMjI3NDYsImV4cCI6MTc2MjEwOTE0Nn0.-VA_PM5OYPlkZWd2gfuz3BlSlCrWITVGYgJJYMEqn0k
+
+### Get Tex By Id
+GET http://localhost:3000/tex/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJwcm9mZXNzb3JfdXN0aGJAZXhhbXBsZS5jb20iLCJyb2xlIjoiQWRtaW4iLCJhY3RpdmUiOmZhbHNlLCJpYXQiOjE3NjIwMjI3NDYsImV4cCI6MTc2MjEwOTE0Nn0.-VA_PM5OYPlkZWd2gfuz3BlSlCrWITVGYgJJYMEqn0k
+
+### Updated Tex by Id
+PUT http://localhost:3000/tex/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJwcm9mZXNzb3JfdXN0aGJAZXhhbXBsZS5jb20iLCJyb2xlIjoiQWRtaW4iLCJhY3RpdmUiOmZhbHNlLCJpYXQiOjE3NjIwMjI3NDYsImV4cCI6MTc2MjEwOTE0Nn0.-VA_PM5OYPlkZWd2gfuz3BlSlCrWITVGYgJJYMEqn0k
+
+{
+  "texPrice": 190
+}
+
+### Delete Tex By Id
+DELETE http://localhost:3000/tex/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJwcm9mZXNzb3JfdXN0aGJAZXhhbXBsZS5jb20iLCJyb2xlIjoiQWRtaW4iLCJhY3RpdmUiOmZhbHNlLCJpYXQiOjE3NjIwMjI3NDYsImV4cCI6MTc2MjEwOTE0Nn0.-VA_PM5OYPlkZWd2gfuz3BlSlCrWITVGYgJJYMEqn0k

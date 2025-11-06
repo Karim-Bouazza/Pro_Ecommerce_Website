@@ -165,10 +165,10 @@ model Suppliers {
   updatedAt DateTime @updatedAt
 }
 
-model Tax {
+model Tex {
   id            Int    @id @default(autoincrement())
-  texPrice      Float?
-  shippingPrice Float?
+  texName       String
+  texPrice Float?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

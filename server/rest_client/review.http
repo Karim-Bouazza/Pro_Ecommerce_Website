@@ -1,0 +1,30 @@
+### Create Review By User
+POST http://localhost:3000/review/product/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJrYXJpbTEuYm91YXp6YUBnbWFpbC5jb20iLCJyb2xlIjoiVXNlciIsImFjdGl2ZSI6ZmFsc2UsImlhdCI6MTc2MjQ1NTA4NSwiZXhwIjoxNzYyNTQxNDg1fQ.QCHlOennL7xFS4e71Z8hg3WmwxhM5vzGTN1s9a_fr-U
+
+{
+  "reviewText": "Great product! Highly recommend.",
+  "rating": 3
+}
+
+### Get All Reviews For A Product
+GET http://localhost:3000/review/product
+
+### Get Single User Review For A Product By Admin
+GET http://localhost:3000/review/product/singleUserReview/1/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJwcm9mZXNzb3JfdXN0aGJAZXhhbXBsZS5jb20iLCJyb2xlIjoiQWRtaW4iLCJhY3RpdmUiOmZhbHNlLCJpYXQiOjE3NjI0NTU1NDgsImV4cCI6MTc2MjU0MTk0OH0.XgWCuhjGj2uzv8oMy0cicwDFFFJbaXCI4FThSeECLE4
+
+
+### Update Review By User
+PUT http://localhost:3000/review/product/1/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJzYWxpbS5ib3VhenphQGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjI0NTg2NTMsImV4cCI6MTc2MjU0NTA1M30.TE7GSmSQrLU_p4OCP3rhZ6ze8OPc2KkE7wJRer_r8Zc
+
+{
+  "reviewText": "Updated review: Good quality, satisfied with the purchase."
+}
+
+### Delete Review By User
+DELETE http://localhost:3000/review/product/remove/1/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJrYXJpbTEuYm91YXp6YUBnbWFpbC5jb20iLCJyb2xlIjoiVXNlciIsImFjdGl2ZSI6ZmFsc2UsImlhdCI6MTc2MjQ1NTA4NSwiZXhwIjoxNzYyNTQxNDg1fQ.QCHlOennL7xFS4e71Z8hg3WmwxhM5vzGTN1s9a_fr-U
