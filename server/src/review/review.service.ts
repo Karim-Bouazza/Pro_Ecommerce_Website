@@ -33,6 +33,16 @@ export class ReviewService {
       throw new NotFoundException('Product not found');
     }
 
+    const exitUserReview = await this.prisma.review.findFirst({
+      where: {
+        userId,
+        productId,
+      },
+    });
+    if (exitUserReview) {
+      throw new HttpException('User has already reviewed this product', 400);
+    }
+
     const review = await this.prisma.review.create({
       data: {
         reviewText: createReviewDto.reviewText,
@@ -90,28 +100,19 @@ export class ReviewService {
   }
 
   /**
-   * Get a review by userId and productId
+   * Get a review by userId
    * @param userId of the user
-   * @param productId of the product
    * @returns data message and review
    */
-  async findOne(userId: number, productId: number) {
+  async findOne(userId: number) {
     const user = await this.prisma.user.findUnique({ where: { id: userId } });
     if (!user) {
       throw new NotFoundException('User not found');
     }
 
-    const product = await this.prisma.product.findUnique({
-      where: { id: productId },
-    });
-    if (!product) {
-      throw new NotFoundException('Product not found');
-    }
-
     const review = await this.prisma.review.findMany({
       where: {
         userId,
-        productId,
       },
     });
 

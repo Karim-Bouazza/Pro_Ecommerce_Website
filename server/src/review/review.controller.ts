@@ -3,7 +3,6 @@ import {
   Get,
   Post,
   Body,
-  Patch,
   Param,
   Delete,
   UseGuards,
@@ -40,15 +39,12 @@ export class ReviewController {
     return this.reviewService.findAll(productId);
   }
 
-  // ~/review/product/singleUserReview/:productId/:userId
-  @Get('product/singleUserReview/:productId/:userId')
+  // ~/review/product/singleUserReview/:userId
+  @Get('product/singleUserReview/:userId')
   @Roles(UserRole.Admin)
   @UseGuards(RolesAuthGuard)
-  findOne(
-    @Param('productId', ParseIntPipe) productId: number,
-    @Param('userId', ParseIntPipe) userId: number,
-  ) {
-    return this.reviewService.findOne(userId, productId);
+  findOne(@Param('userId', ParseIntPipe) userId: number) {
+    return this.reviewService.findOne(userId);
   }
 
   // ~/review/product/:productId/:id
