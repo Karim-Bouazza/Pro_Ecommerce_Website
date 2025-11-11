@@ -6,6 +6,7 @@ import { UsersModule } from 'src/users/users.module';
 
 @Module({
   imports: [PrismaModule, UsersModule],
+  exports: [CouponService],
   controllers: [CouponController],
   providers: [CouponService],
 })

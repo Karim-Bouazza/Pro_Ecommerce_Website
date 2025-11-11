@@ -46,6 +46,14 @@ export class ProductService {
       }
     }
 
+    if (createProductDto.priceAfterDiscount) {
+      if (createProductDto.priceAfterDiscount >= createProductDto.price) {
+        throw new NotFoundException(
+          'Price after discount must be less than price',
+        );
+      }
+    }
+
     const product = await this.prisma.product.create({
       data: {
         ...createProductDto,
@@ -95,7 +103,10 @@ export class ProductService {
         { quantity: quantityOrder === 'desc' ? 'desc' : 'asc' },
         { sold: soldOrder === 'desc' ? 'desc' : 'asc' },
         { price: priceOrder === 'desc' ? 'desc' : 'asc' },
-        { priceAfterDiscount: priceAfterDiscountOrder === 'desc' ? 'desc' : 'asc' },
+        {
+          priceAfterDiscount:
+            priceAfterDiscountOrder === 'desc' ? 'desc' : 'asc',
+        },
         { ratingsAverage: ratingAverageOrder === 'desc' ? 'desc' : 'asc' },
         { ratingsQuantity: ratingQuantityOrder === 'desc' ? 'desc' : 'asc' },
       ],
@@ -111,7 +122,12 @@ export class ProductService {
         ratingsAverage: { gte: ratingAverageGte, lte: ratingAverageLte },
         ratingsQuantity: { gte: ratingQuantityGte, lte: ratingQuantityLte },
       },
-      include: { category: true, subCategory: true, brand: true, reviews: true },
+      include: {
+        category: true,
+        subCategory: true,
+        brand: true,
+        reviews: true,
+      },
     });
 
     return {
@@ -156,7 +172,12 @@ export class ProductService {
         ratingsQuantity: { gte: ratingQuantityGte, lte: ratingQuantityLte },
       },
       omit: { createdAt: true, updatedAt: true, quantity: true, sold: true },
-      include: { category: true, subCategory: true, brand: true, reviews: true },
+      include: {
+        category: true,
+        subCategory: true,
+        brand: true,
+        reviews: true,
+      },
     });
 
     return {
@@ -174,7 +195,12 @@ export class ProductService {
   async findOneByAdmin(id: number) {
     const product = await this.prisma.product.findUnique({
       where: { id },
-      include: { category: true, subCategory: true, brand: true, reviews: true },
+      include: {
+        category: true,
+        subCategory: true,
+        brand: true,
+        reviews: true,
+      },
     });
     if (!product) throw new NotFoundException('Product Not Found');
 
@@ -194,7 +220,12 @@ export class ProductService {
     const product = await this.prisma.product.findUnique({
       where: { id },
       omit: { createdAt: true, updatedAt: true, quantity: true, sold: true },
-      include: { category: true, subCategory: true, brand: true, reviews: true },
+      include: {
+        category: true,
+        subCategory: true,
+        brand: true,
+        reviews: true,
+      },
     });
     if (!product) throw new NotFoundException('Product Not Found');
 
@@ -237,6 +268,17 @@ export class ProductService {
       const brand = await this.brandService.findOne(updateProductDto.brandId);
       if (!brand) {
         throw new NotFoundException('Brand not found');
+      }
+    }
+
+    if (updateProductDto.priceAfterDiscount) {
+      if (
+        updateProductDto.priceAfterDiscount >=
+        (updateProductDto.price ?? product.price)
+      ) {
+        throw new NotFoundException(
+          'Price after discount must be less than price',
+        );
       }
     }
 

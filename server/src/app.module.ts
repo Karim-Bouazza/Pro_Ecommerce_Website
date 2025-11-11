@@ -14,8 +14,10 @@ import { RequestModule } from './request/request.module';
 import { TexModule } from './tex/tex.module';
 import { ProductModule } from './product/product.module';
 import { ReviewModule } from './review/review.module';
+import { CartModule } from './cart/cart.module';
+import { CartItemModule } from './cart-item/cart-item.module';
 
 @Module({
-  imports: [AdminsModule, UsersModule, AuthModule, MailModule, ResetPasswordModule, CategoryModule, CloudinaryModule, SubCategoryModule, BrandModule, CouponModule, SuppliersModule, RequestModule, TexModule, ProductModule, ReviewModule],
+  imports: [AdminsModule, UsersModule, AuthModule, MailModule, ResetPasswordModule, CategoryModule, CloudinaryModule, SubCategoryModule, BrandModule, CouponModule, SuppliersModule, RequestModule, TexModule, ProductModule, ReviewModule, CartModule, CartItemModule],
 })
 export class AppModule {}

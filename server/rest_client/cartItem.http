@@ -1,0 +1,20 @@
+### Create Cart Item
+POST http://localhost:3000/cart-item/create/2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJrYXJpbTEuYm91YXp6YUBnbWFpbC5jb20iLCJyb2xlIjoiVXNlciIsImFjdGl2ZSI6ZmFsc2UsImlhdCI6MTc2MjUyOTIyOSwiZXhwIjoxNzYyNjE1NjI5fQ.5RDiOmVeI5tsrPpPxnj1pZt4qgv4LNW75YpmtEU85k4
+
+{
+    "quantity": 2
+}
+
+### Update Cart Item
+PUT http://localhost:3000/cart-item/update/2/9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJzYWxpbS5ib3VhenphQGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjI2MjMzMTksImV4cCI6MTc2MjcwOTcxOX0.8KI0cV4Dx2iQv0NsfNU6f4pSylJegUbCXDm_U22vanU
+
+{
+    "quantity": 5
+}
+
+### Delete Cart Item
+DELETE http://localhost:3000/cart-item/delete/9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJzYWxpbS5ib3VhenphQGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjI2MjMzMTksImV4cCI6MTc2MjcwOTcxOX0.8KI0cV4Dx2iQv0NsfNU6f4pSylJegUbCXDm_U22vanU

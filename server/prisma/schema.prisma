@@ -22,9 +22,10 @@ model User {
   gender           Gender?
 
   reviews        Review[]
-  cartItems      Cart[]
+  cart           Cart[]
   RequestProduct RequestProduct[]
   Order          Order[]
+  cartItems      CartItem[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -83,14 +84,31 @@ model Brand {
 
 model Cart {
   id                      Int    @id @default(autoincrement())
-  totalPrice              Float?
-  totalPriceAfterDiscount Float?
-
-  productId Int?
-  cartItems Product? @relation(fields: [productId], references: [id])
+  totalPrice              Float? @default(0)
+  totalPriceAfterDiscount Float? @default(0)
 
   couponId Int?
   coupons  Coupon? @relation(fields: [couponId], references: [id])
+
+  userId Int?
+  user   User? @relation(fields: [userId], references: [id])
+
+  cartItems CartItem[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model CartItem {
+  id       Int     @id @default(autoincrement())
+  quantity Int     @default(1)
+  color    String?
+
+  productId Int
+  product   Product @relation(fields: [productId], references: [id])
+
+  cartId Int
+  cart   Cart @relation(fields: [cartId], references: [id])
 
   userId Int?
   user   User? @relation(fields: [userId], references: [id])
@@ -100,12 +118,12 @@ model Cart {
 }
 
 model Coupon {
-  id         Int      @id @default(autoincrement())
+  id         Int    @id @default(autoincrement())
   name       String
   expireDate String
   discount   Float
 
-  cartItems Cart[]
+  cart Cart[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -127,7 +145,7 @@ model Product {
 
   reviews   Review[]
   Order     Order[]
-  cartItems Cart[]
+  cartItems CartItem[]
 
   categoryId Int?
   category   Category? @relation(fields: [categoryId], references: [id])
@@ -143,7 +161,7 @@ model Product {
 }
 
 model RequestProduct {
-  id        Int    @id @default(autoincrement())
+  id        Int     @id @default(autoincrement())
   titleNeed String
   details   String
   qantity   Int
@@ -166,8 +184,8 @@ model Suppliers {
 }
 
 model Tex {
-  id            Int    @id @default(autoincrement())
-  texName       String
+  id       Int    @id @default(autoincrement())
+  texName  String
   texPrice Float?
 
   createdAt DateTime @default(now())
@@ -190,7 +208,7 @@ model Order {
   user   User? @relation(fields: [userId], references: [id])
 
   productId Int?
-  cartItems Product? @relation(fields: [productId], references: [id])
+  product Product? @relation(fields: [productId], references: [id])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

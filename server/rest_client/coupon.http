@@ -1,12 +1,12 @@
 ### Create New Coupon By Admin
 POST http://localhost:3000/coupon/create
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJwcm9mZXNzb3JfdXN0aGJAZXhhbXBsZS5jb20iLCJyb2xlIjoiQWRtaW4iLCJhY3RpdmUiOmZhbHNlLCJpYXQiOjE3NjE4NDQ0OTgsImV4cCI6MTc2MTkzMDg5OH0.I5cC978Gc8_JMiQ1ZHCz9pv96Pzg_eIAAPi23RZb5I4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJwcm9mZXNzb3JfdXN0aGJAZXhhbXBsZS5jb20iLCJyb2xlIjoiQWRtaW4iLCJhY3RpdmUiOmZhbHNlLCJpYXQiOjE3NjI4MDMwOTgsImV4cCI6MTc2Mjg4OTQ5OH0.e_5bx4IKwReVHmjACB98secUZWGzgqtWU25_dSfsGps
 
 {
-  "name": "karim8Discount",
+  "name": "hight",
   "expireDate": "2026-06-01",
-  "discount": 19.99
+  "discount": 800
 }
 
 ### Get All Coupons By Admin

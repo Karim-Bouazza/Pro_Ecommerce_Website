@@ -15,7 +15,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiO
 
 ### Get All Products By Admin
 GET http://localhost:3000/product/admin?pageNumber=1&productPerPage=5
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJwcm9mZXNzb3JfdXN0aGJAZXhhbXBsZS5jb20iLCJyb2xlIjoiQWRtaW4iLCJhY3RpdmUiOmZhbHNlLCJpYXQiOjE3NjIwODU5ODEsImV4cCI6MTc2MjE3MjM4MX0.DunMhMWUnGLdOnVS8tcP_QTExRDIMiremWYerHn3t-c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJwcm9mZXNzb3JfdXN0aGJAZXhhbXBsZS5jb20iLCJyb2xlIjoiQWRtaW4iLCJhY3RpdmUiOmZhbHNlLCJpYXQiOjE3NjI1MjYxODQsImV4cCI6MTc2MjYxMjU4NH0.turnyom0izYVaAtraISTVg3U-Uau-puh-uk47o9JYNo
 
 ### Get All Products By User
 GET http://localhost:3000/product
